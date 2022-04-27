@@ -1,98 +1,116 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./pages/index.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./pages/index.css" />
     <title>Место</title>
-</head>
-<body class="page">
-  <header class="header">
-    <img class="header__logo" src="./images/logo.svg" alt="Место Россия">
-  </header> 
-  <main class="content">
+  </head>
+  <body class="page">
+    <header class="header">
+      <img class="header__logo" src="./images/logo.svg" alt="Место Россия" />
+    </header>
+    <main class="content">
+      <section class="profile">
+        <img src="./images/avatar.png" alt="Аватар" class="profile__avatar" />
+        <div class="profile__info">
+          <div class="profile__changes">
+            <h1 class="profile__name">Жак-Ив Кусто</h1>
+            <button class="profile__edit-btn"></button>
+          </div>
+          <p class="profile__about">Исследователь океана</p>
+        </div>
+        <button class="profile__add-btn" type="button"></button>
+      </section>
 
-		<section class="profile">
-			<img src="./images/avatar.png" alt="Аватар" class="profile__avatar">
-			<div class="profile__info">
-				<div class="profile__changes">
-					<h1 class="profile__name">Жак-Ив Кусто</h1>
-					<button class="profile__edit-btn"></button>
-				</div>
-				<p class="profile__about">Исследователь океана</p>
-			</div>
-			<button class="profile__add-btn" type="button"></button>
-		</section>
+      <section class="places">
+        <ul class="place">
+          <li class="place__item">
+            <img
+              src="./images/img1.jpg"
+              alt="Одинокая гора"
+              class="place__img"
+            />
+            <div class="place__description">
+              <h2 class="place__name">Республика Дагестан</h2>
+              <button class="place__heart-btn" type="button"></button>
+            </div>
+          </li>
 
-		<section class="places">
-			<ul class="place">
-				<li class="place__item">
-					<img src="./images/img1.jpg" alt="Одинокая гора" class="place__img">
-					<div class="place__description">
-						<h2 class="place__name">Республика Дагестан</h2>
-						<button class="place__heart-btn" type="button"></button>
-					</div>
-				</li>
+          <li class="place__item">
+            <img src="./images/img2.jpg" alt="Водопад" class="place__img" />
+            <div class="place__description">
+              <h2 class="place__name">Норильск</h2>
+              <button class="place__heart-btn" type="button"></button>
+            </div>
+          </li>
 
-				<li class="place__item">
-					<img src="./images/img2.jpg" alt="Водопад" class="place__img">
-					<div class="place__description">
-						<h2 class="place__name">Норильск</h2>
-						<button class="place__heart-btn" type="button"></button>
-					</div>
-				</li>
+          <li class="place__item">
+            <img src="./images/img3.jpg" alt="Лес" class="place__img" />
+            <div class="place__description">
+              <h2 class="place__name">Миасс</h2>
+              <button class="place__heart-btn" type="button"></button>
+            </div>
+          </li>
 
-				<li class="place__item">
-					<img src="./images/img3.jpg" alt="Лес" class="place__img">
-					<div class="place__description">
-						<h2 class="place__name">Миасс</h2>
-						<button class="place__heart-btn" type="button"></button>
-					</div>
-				</li>
+          <li class="place__item">
+            <img src="./images/img4.jpg" alt="Сакура" class="place__img" />
+            <div class="place__description">
+              <h2 class="place__name">Токио</h2>
+              <button class="place__heart-btn" type="button"></button>
+            </div>
+          </li>
 
-				<li class="place__item">
-					<img src="./images/img4.jpg" alt="Сакура" class="place__img">
-					<div class="place__description">
-						<h2 class="place__name">Токио</h2>
-						<button class="place__heart-btn" type="button"></button>
-					</div>
-				</li>
+          <li class="place__item">
+            <img src="./images/img5.jpg" alt="Закат" class="place__img" />
+            <div class="place__description">
+              <h2 class="place__name">Каир</h2>
+              <button class="place__heart-btn" type="button"></button>
+            </div>
+          </li>
 
-				<li class="place__item">
-					<img src="./images/img5.jpg" alt="Закат" class="place__img">
-					<div class="place__description">
-						<h2 class="place__name">Каир</h2>
-						<button class="place__heart-btn" type="button"></button>
-					</div>
-				</li>
+          <li class="place__item">
+            <img src="./images/img6.jpg" alt="Море" class="place__img" />
+            <div class="place__description">
+              <h2 class="place__name">Доминикана</h2>
+              <button class="place__heart-btn" type="button"></button>
+            </div>
+          </li>
+        </ul>
+      </section>
 
-				<li class="place__item">
-					<img src="./images/img6.jpg" alt="Море" class="place__img">
-					<div class="place__description">
-						<h2 class="place__name">Доминикана</h2>
-						<button class="place__heart-btn" type="button"></button>
-					</div>
-				</li>
-			</ul>
-		</section>
+      <section class="popup">
+        <div class="popup__container">
+          <button class="popup__close-btn" type="button"></button>
+          <h3 class="popup__title">Редактировать профиль</h3>
+          <form
+            action="form"
+            class="popup__form"
+            method="post"
+            name="popup-form"
+          >
+            <input
+              type="text"
+              class="popup__input"
+              id="user-name"
+              name="userName"
+            />
+            <input
+              type="text"
+              class="popup__input"
+              id="user-about"
+              name="userAbout"
+            />
+            <button class="popup__save-btn" type="submit">Сохранить</button>
+          </form>
+        </div>
+      </section>
+    </main>
 
-		<section class="popup">
-			<div class="popup__container">
-				<button class="popup__close-btn" type="button"></button>
-				<h3 class="popup__title">Редактировать профиль</h3>
-				<form action="form" class="popup__form" method="post" name="popup-form">
-					<input type="text" class="popup__input" id="user-name" name="userName">
-					<input type="text" class="popup__input" id="user-about" name="userAbout">
-					<button class="popup__save-btn" type="submit" aria-label="Сохранить">Сохранить</button>
-				</form>
-			</div>
-		</section>
-  </main>
-
-  <footer class="footer">
-    <p class="footer__copyright">© 2022 Mesto Russia</p>
-  </footer>
-	<script src="./scripts/index.js"></script>
-</body>
+    <footer class="footer">
+      <p class="footer__copyright">© 2022 Mesto Russia</p>
+    </footer>
+    <script src="./scripts/index.js"></script>
+  </body>
 </html>
