@@ -1,20 +1,8 @@
 .place {
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    gap: 20px 17px;
-}
-
-@media screen and (min-width: 640px) {
-    .place {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media screen and (min-width: 960px) {
-    .place {
-        grid-template-columns: repeat(3, 1fr);
-    }
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
+  grid-template-rows: auto;
+  gap: 20px 17px;
 }
