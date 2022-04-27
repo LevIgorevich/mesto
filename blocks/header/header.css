@@ -1,0 +1,15 @@
+.header {
+    min-width: 320px;
+    max-width: 880px;
+    min-height: 56px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    border-bottom: solid 1px rgba(54, 54, 54, 0.7);
+}
+
+@media screen and (min-width: 768px) {
+    .header__logo {
+        min-height: 74px;
+    }
+}
