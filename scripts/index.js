@@ -144,6 +144,7 @@ const handleAddPlaceSumbmit = (evt) => {
   place.link = popupInputPlaceLinkImg.value;
   prependPlace(place);
   closePopup(popupAddPlace);
+  evt.target.reset();
 };
 
 // Поставить лайк
@@ -162,7 +163,7 @@ popupEditBtn.addEventListener("click", clickEditBtn);
 popupEditCloseBtn.addEventListener("click", clickEditBtnClose);
 popupAddBtn.addEventListener("click", clickAddPlace);
 popupAddBtnClose.addEventListener("click", clickAddPlaceClose);
-popupShowImgPlace.addEventListener("click", clickShowImg);
+// popupShowImgPlace.addEventListener("click", clickShowImg);
 popupShowImgCloseBtn.addEventListener("click", clickShowImgClose);
 popupFormEdit.addEventListener("submit", editProfile);
 popupFormAddPlace.addEventListener("submit", handleAddPlaceSumbmit);
