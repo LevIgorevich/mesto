@@ -29,81 +29,82 @@ const initialCards = [
 // Объявление переменных:
 
 // Редактирование профиля
-let profileArea = document.querySelector(".profile");
-let profileName = document.querySelector(".profile__name");
-let profileAbout = document.querySelector(".profile__about");
-let popupEditBtn = document.querySelector(".profile__edit-btn");
-let popupEdit = document.querySelector(".popup_type_edit");
-let popupEditCloseBtn = popupEdit.querySelector(".popup__close-btn");
-let popupFormEdit = popupEdit.querySelector(".popup__form");
-let popupInputName = popupEdit.querySelector(".popup__input_type_user-name");
-let popupInputAbout = popupEdit.querySelector(".popup__input_type_user-about");
+const profileArea = document.querySelector(".profile");
+const profileName = document.querySelector(".profile__name");
+const profileAbout = document.querySelector(".profile__about");
+const popupEditBtn = document.querySelector(".profile__edit-btn");
+const popupEdit = document.querySelector(".popup_type_edit");
+const popupEditCloseBtn = popupEdit.querySelector(".popup__close-btn");
+const popupFormEdit = popupEdit.querySelector(".popup__form");
+const popupInputName = popupEdit.querySelector(".popup__input_type_user-name");
+const popupInputAbout = popupEdit.querySelector(
+  ".popup__input_type_user-about"
+);
 
 // Места
-let templatePlace = document.querySelector(".template-place").content;
-let placesArea = document.querySelector(".places");
-let popupAddPlace = document.querySelector(".popup_type_add-place");
-let popupAddBtn = document.querySelector(".profile__add-btn");
-let popupAddBtnClose = popupAddPlace.querySelector(".popup__close-btn");
-let popupFormAddPlace = popupAddPlace.querySelector(".popup__form");
-let popupInputPlaceName = popupAddPlace.querySelector(
+const templatePlace = document.querySelector(".template-place").content;
+const placesArea = document.querySelector(".places");
+const popupAddPlace = document.querySelector(".popup_type_add-place");
+const popupAddBtn = document.querySelector(".profile__add-btn");
+const popupAddBtnClose = popupAddPlace.querySelector(".popup__close-btn");
+const popupFormAddPlace = popupAddPlace.querySelector(".popup__form");
+const popupInputPlaceName = popupAddPlace.querySelector(
   ".popup__input_type_place-name"
 );
-let popupInputPlaceLinkImg = popupAddPlace.querySelector(
+const popupInputPlaceLinkImg = popupAddPlace.querySelector(
   ".popup__input_type_link-img"
 );
 
 // Просмотр фото
-let popupShowImg = document.querySelector(".popup_type_show-img");
-let popupShowImgCloseBtn = popupShowImg.querySelector(".popup__close-btn");
-let popupShowImgPlace = popupShowImg.querySelector(".popup__show-img");
-let popupPlaceDescription = popupShowImg.querySelector(
+const popupShowImg = document.querySelector(".popup_type_show-img");
+const popupShowImgCloseBtn = popupShowImg.querySelector(".popup__close-btn");
+const popupShowImgPlace = popupShowImg.querySelector(".popup__show-img");
+const popupPlaceDescription = popupShowImg.querySelector(
   ".popup__place-description"
 );
 
 // Функции:
 
 // Открытие и закрытие popup'ов
-let openPopup = (popup) => {
-  popup.classList.add("popup__active");
+const openPopup = (popup) => {
+  popup.classList.add("popup_active");
 };
 
-let closePopup = (popup) => {
-  popup.classList.remove("popup__active");
+const closePopup = (popup) => {
+  popup.classList.remove("popup_active");
 };
 
-let clickEditBtn = () => {
+const clickEditBtn = () => {
   popupInputName.value = profileName.textContent;
   popupInputAbout.value = profileAbout.textContent;
   openPopup(popupEdit);
 };
 
-let clickEditBtnClose = () => {
+const clickEditBtnClose = () => {
   closePopup(popupEdit);
 };
 
-let clickAddPlace = () => {
-  popupFormAddPlace.reset();
+const clickAddPlace = () => {
   openPopup(popupAddPlace);
 };
 
-let clickAddPlaceClose = () => {
+const clickAddPlaceClose = () => {
   closePopup(popupAddPlace);
 };
 
-let clickShowImg = (place) => {
+const clickShowImg = (place) => {
   popupShowImgPlace.src = place.link;
   popupShowImgPlace.alt = place.name;
   popupPlaceDescription.textContent = place.name;
   openPopup(popupShowImg);
 };
 
-let clickShowImgClose = () => {
+const clickShowImgClose = () => {
   closePopup(popupShowImg);
 };
 
 // Редактирование профиля
-let editProfile = (evt) => {
+const editProfile = (evt) => {
   evt.preventDefault();
   profileName.textContent = popupInputName.value;
   profileAbout.textContent = popupInputAbout.value;
@@ -111,13 +112,13 @@ let editProfile = (evt) => {
 };
 
 // Добавление мест
-let addPlace = (place) => {
-  let placeItem = templatePlace.querySelector(".place").cloneNode(true);
-  let placeDelete = placeItem.querySelector(".place__trash-btn");
-  let placeImg = placeItem.querySelector(".place__img");
-  let placeDescription = placeItem.querySelector(".place__description");
-  let placeName = placeDescription.querySelector(".place__name");
-  let placeHeartBtn = placeDescription.querySelector(".place__heart-btn");
+const insertPlace = (place) => {
+  const placeItem = templatePlace.querySelector(".place").cloneNode(true);
+  const placeDelete = placeItem.querySelector(".place__trash-btn");
+  const placeImg = placeItem.querySelector(".place__img");
+  const placeDescription = placeItem.querySelector(".place__description");
+  const placeName = placeDescription.querySelector(".place__name");
+  const placeHeartBtn = placeDescription.querySelector(".place__heart-btn");
   placeImg.src = place.link;
   placeImg.alt = place.name;
   placeImg.addEventListener("click", () => clickShowImg(place));
@@ -128,31 +129,31 @@ let addPlace = (place) => {
 };
 
 // Добавить места из массива
-let getPlace = (place) => {
-  placesArea.prepend(addPlace(place));
+const prependPlace = (place) => {
+  placesArea.prepend(insertPlace(place));
 };
 
-let getPlaces = (places) => {
-  places.forEach((place) => getPlace(place));
+const renderCards = (places) => {
+  places.forEach((place) => prependPlace(place));
 };
 
-let addPlaceSumbmit = (evt) => {
+const handleAddPlaceSumbmit = (evt) => {
   evt.preventDefault();
-  let place = {};
+  const place = {};
   place.name = popupInputPlaceName.value;
   place.link = popupInputPlaceLinkImg.value;
-  getPlace(place);
+  prependPlace(place);
   closePopup(popupAddPlace);
 };
 
 // Поставить лайк
-let clickBtnLike = (evt) => {
+const clickBtnLike = (evt) => {
   evt.target.classList.toggle("place__heart-btn_active");
 };
 
 // Удалить место
-let deletePlace = (evt) => {
-  let place = evt.target.closest(".place");
+const deletePlace = (evt) => {
+  const place = evt.target.closest(".place");
   place.remove();
 };
 
@@ -164,5 +165,5 @@ popupAddBtnClose.addEventListener("click", clickAddPlaceClose);
 popupShowImgPlace.addEventListener("click", clickShowImg);
 popupShowImgCloseBtn.addEventListener("click", clickShowImgClose);
 popupFormEdit.addEventListener("submit", editProfile);
-popupFormAddPlace.addEventListener("submit", addPlaceSumbmit);
-getPlaces(initialCards);
+popupFormAddPlace.addEventListener("submit", handleAddPlaceSumbmit);
+renderCards(initialCards);
