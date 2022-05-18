@@ -1,3 +1,4 @@
 .popup__active {
-    display: flex;
+    visibility: visible;
+    opacity: 1;
 }

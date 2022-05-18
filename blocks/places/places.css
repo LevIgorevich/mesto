@@ -1,12 +1,16 @@
 .places {
-    margin: 0 auto;
-    padding: 36px 19px 0 19px;
     min-width: 282px;
     max-width: 880px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
+    grid-template-rows: auto;
+    justify-items: center;
+    gap: 20px 0;
 }
 
 @media screen and (min-width: 768px) {
     .places {
-        padding-top: 50px;
+        gap: 20px 17px;
     }
 }

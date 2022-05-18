@@ -1,6 +1,6 @@
 .profile {
   margin: 0 auto;
-  padding: 42px 19px 0 19px;
+  padding: 42px 19px 36px;
   min-width: 282px;
   max-width: 880px;
   text-align: center;
@@ -8,7 +8,7 @@
 
 @media screen and (min-width: 768px) {
   .profile {
-    padding: 40px 20px 0 20px;
+    padding: 40px 20px 50px;
     text-align: left;
     display: flex;
     align-items: center;

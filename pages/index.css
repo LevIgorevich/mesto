@@ -14,11 +14,12 @@
 @import url(../blocks/profile/__changes/profile__changes.css);
 @import url(../blocks/places/places.css);
 @import url(../blocks/place/place.css);
-@import url(../blocks/place/__item/place__item.css);
 @import url(../blocks/place/__img/place__img.css);
 @import url(../blocks/place/__name/place__name.css);
 @import url(../blocks/place/__description/place__description.css);
 @import url(../blocks/place/__heart-btn/place__heart-btn.css);
+@import url(../blocks/place/__heart-btn/_active/place__heart-btn_active.css);
+@import url(../blocks/place/__trash-btn/place__trash-btn.css);
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__container/popup__container.css);
 @import url(../blocks/popup/__close-btn/popup__close-btn.css);
@@ -27,6 +28,9 @@
 @import url(../blocks/popup/__input/popup__input.css);
 @import url(../blocks/popup/__save-btn/popup__save-btn.css);
 @import url(../blocks/popup/__active/popup__active.css);
+@import url(../blocks/popup/__show-img/popup__show-img.css);
+@import url(../blocks/popup/__place-description/popup__place-description.css);
+@import url(../blocks/popup/_type/popup_type_show-img.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
 @import url(../scripts/index.js);

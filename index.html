@@ -7,10 +7,12 @@
     <link rel="stylesheet" href="./pages/index.css" />
     <title>Место</title>
   </head>
+
   <body class="page">
     <header class="header">
       <img class="header__logo" src="./images/logo.svg" alt="Место Россия" />
     </header>
+
     <main class="content">
       <section class="profile">
         <img src="./images/avatar.png" alt="Аватар" class="profile__avatar" />
@@ -24,86 +26,74 @@
         <button class="profile__add-btn" type="button"></button>
       </section>
 
-      <section class="places">
-        <ul class="place">
-          <li class="place__item">
-            <img
-              src="./images/img1.jpg"
-              alt="Одинокая гора"
-              class="place__img"
-            />
-            <div class="place__description">
-              <h2 class="place__name">Республика Дагестан</h2>
-              <button class="place__heart-btn" type="button"></button>
-            </div>
-          </li>
+      <section class="places"></section>
 
-          <li class="place__item">
-            <img src="./images/img2.jpg" alt="Водопад" class="place__img" />
-            <div class="place__description">
-              <h2 class="place__name">Норильск</h2>
-              <button class="place__heart-btn" type="button"></button>
-            </div>
-          </li>
-
-          <li class="place__item">
-            <img src="./images/img3.jpg" alt="Лес" class="place__img" />
-            <div class="place__description">
-              <h2 class="place__name">Миасс</h2>
-              <button class="place__heart-btn" type="button"></button>
-            </div>
-          </li>
-
-          <li class="place__item">
-            <img src="./images/img4.jpg" alt="Сакура" class="place__img" />
-            <div class="place__description">
-              <h2 class="place__name">Токио</h2>
-              <button class="place__heart-btn" type="button"></button>
-            </div>
-          </li>
-
-          <li class="place__item">
-            <img src="./images/img5.jpg" alt="Закат" class="place__img" />
-            <div class="place__description">
-              <h2 class="place__name">Каир</h2>
-              <button class="place__heart-btn" type="button"></button>
-            </div>
-          </li>
-
-          <li class="place__item">
-            <img src="./images/img6.jpg" alt="Море" class="place__img" />
-            <div class="place__description">
-              <h2 class="place__name">Доминикана</h2>
-              <button class="place__heart-btn" type="button"></button>
-            </div>
-          </li>
-        </ul>
-      </section>
-
-      <section class="popup">
+      <!-- Редактирование профиля -->
+      <section class="popup popup_type_edit">
         <div class="popup__container">
           <button class="popup__close-btn" type="button"></button>
-          <h3 class="popup__title">Редактировать профиль</h3>
           <form
             action="form"
             class="popup__form"
             method="post"
-            name="popup-form"
+            name="popupEditForm"
           >
+            <h3 class="popup__title">Редактировать профиль</h3>
             <input
               type="text"
-              class="popup__input"
+              class="popup__input popup__input_type_user-name"
               id="user-name"
               name="userName"
+              placeholder="Имя"
             />
             <input
               type="text"
-              class="popup__input"
+              class="popup__input popup__input_type_user-about"
               id="user-about"
               name="userAbout"
+              placeholder="О себе"
             />
             <button class="popup__save-btn" type="submit">Сохранить</button>
           </form>
+        </div>
+      </section>
+
+      <!-- Добавление фотографий и описания -->
+      <section class="popup popup_type_add-place">
+        <div class="popup__container">
+          <button class="popup__close-btn" type="button"></button>
+          <form
+            action="form"
+            class="popup__form"
+            method="post"
+            name="popupAddPlaceForm"
+          >
+            <h3 class="popup__title">Новое место</h3>
+            <input
+              type="text"
+              class="popup__input popup__input_type_place-name"
+              id="place-name"
+              name="placeName"
+              placeholder="Название"
+            />
+            <input
+              type="text"
+              class="popup__input popup__input_type_link-img"
+              id="link-img"
+              name="linkImg"
+              placeholder="Ссылка на картинку"
+            />
+            <button class="popup__save-btn" type="submit">Создать</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- Развернуть фотографию на весь экран -->
+      <section class="popup popup_type_show-img">
+        <div class="popup__container">
+          <button class="popup__close-btn" type="button"></button>
+          <img src="#" alt="место" class="popup__show-img" />
+          <h3 class="popup__place-description"></h3>
         </div>
       </section>
     </main>
@@ -111,6 +101,19 @@
     <footer class="footer">
       <p class="footer__copyright">© 2022 Mesto Russia</p>
     </footer>
+
+    <!-- Добавление мест  -->
+    <template class="template-place">
+      <article class="place">
+        <button class="place__trash-btn" type="button"></button>
+        <img src="#" alt="Фотография" class="place__img" />
+        <div class="place__description">
+          <h2 class="place__name"></h2>
+          <button class="place__heart-btn" type="button"></button>
+        </div>
+      </article>
+    </template>
+
     <script src="./scripts/index.js"></script>
   </body>
 </html>
