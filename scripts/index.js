@@ -55,6 +55,17 @@ const popupInputPlaceLinkImg = popupAddPlace.querySelector(
   ".popup__input_type_link-img"
 );
 
+//Переменные для ошибок
+const popupSubmitBtn = popupAddPlace.querySelector(
+  ".popup__save-btn_submit"
+);
+const popupInputPlaceErrorName = popupAddPlace.querySelector(
+  ".popup__input-error_type_place-name"
+);
+const popupInputPlaceErrorLinkImg = popupAddPlace.querySelector(
+  ".popup__input-error_type_link-img"
+);
+
 // Просмотр фото
 const popupShowImg = document.querySelector(".popup_type_show-img");
 const popupShowImgCloseBtn = popupShowImg.querySelector(".popup__close-btn");
@@ -78,6 +89,8 @@ const clickEditBtn = () => {
   popupInputName.value = profileName.textContent;
   popupInputAbout.value = profileAbout.textContent;
   openPopup(popupEdit);
+  popupInputName.dispatchEvent(new Event('input'));
+  popupInputAbout.dispatchEvent(new Event('input'));
 };
 
 const clickEditBtnClose = () => {
@@ -102,6 +115,21 @@ const clickShowImg = (place) => {
 const clickShowImgClose = () => {
   closePopup(popupShowImg);
 };
+
+const closePopupByOverlay = (evt) => {
+  const overlayPopup = evt.target;
+  if (!overlayPopup.classList.contains("popup_active")) {
+    return evt.target;
+  }
+  closePopup(overlayPopup);
+}
+
+const closePopupByEsc = (evt) => {
+  const escPopup = document.querySelector('.popup_active');
+  if (evt.key == 'Escape') {
+    closePopup(escPopup);
+  } 
+}
 
 // Редактирование профиля
 const editProfile = (evt) => {
@@ -163,8 +191,12 @@ popupEditBtn.addEventListener("click", clickEditBtn);
 popupEditCloseBtn.addEventListener("click", clickEditBtnClose);
 popupAddBtn.addEventListener("click", clickAddPlace);
 popupAddBtnClose.addEventListener("click", clickAddPlaceClose);
-// popupShowImgPlace.addEventListener("click", clickShowImg);
 popupShowImgCloseBtn.addEventListener("click", clickShowImgClose);
 popupFormEdit.addEventListener("submit", editProfile);
 popupFormAddPlace.addEventListener("submit", handleAddPlaceSumbmit);
 renderCards(initialCards);
+
+// Закрытие попапа по клику на оверлей
+document.addEventListener('mousedown', closePopupByOverlay);
+// Закрытие попапа по Esc
+document.addEventListener('keydown', closePopupByEsc);
