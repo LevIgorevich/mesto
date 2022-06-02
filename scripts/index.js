@@ -56,9 +56,7 @@ const popupInputPlaceLinkImg = popupAddPlace.querySelector(
 );
 
 //Переменные для ошибок
-const popupSubmitBtn = popupAddPlace.querySelector(
-  ".popup__save-btn_submit"
-);
+const popupSubmitBtn = popupAddPlace.querySelector(".popup__save-btn_submit");
 const popupInputPlaceErrorName = popupAddPlace.querySelector(
   ".popup__input-error_type_place-name"
 );
@@ -89,8 +87,8 @@ const clickEditBtn = () => {
   popupInputName.value = profileName.textContent;
   popupInputAbout.value = profileAbout.textContent;
   openPopup(popupEdit);
-  popupInputName.dispatchEvent(new Event('input'));
-  popupInputAbout.dispatchEvent(new Event('input'));
+  popupInputName.dispatchEvent(new Event("input"));
+  popupInputAbout.dispatchEvent(new Event("input"));
 };
 
 const clickEditBtnClose = () => {
@@ -122,14 +120,14 @@ const closePopupByOverlay = (evt) => {
     return evt.target;
   }
   closePopup(overlayPopup);
-}
+};
 
 const closePopupByEsc = (evt) => {
-  const escPopup = document.querySelector('.popup_active');
-  if (evt.key == 'Escape') {
+  const escPopup = document.querySelector(".popup_active");
+  if (evt.key == "Escape") {
     closePopup(escPopup);
-  } 
-}
+  }
+};
 
 // Редактирование профиля
 const editProfile = (evt) => {
@@ -197,6 +195,6 @@ popupFormAddPlace.addEventListener("submit", handleAddPlaceSumbmit);
 renderCards(initialCards);
 
 // Закрытие попапа по клику на оверлей
-document.addEventListener('mousedown', closePopupByOverlay);
+document.addEventListener("mousedown", closePopupByOverlay);
 // Закрытие попапа по Esc
-document.addEventListener('keydown', closePopupByEsc);
+document.addEventListener("keydown", closePopupByEsc);
