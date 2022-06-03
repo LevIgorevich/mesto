@@ -1,19 +1,20 @@
 .place__trash-btn {
-    width: 18px;
-    height: 19px;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background-color: transparent;
-    background-image: url(../../../images/trash.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    border: none;
-    cursor: pointer;
+  width: 18px;
+  height: 19px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: transparent;
+  background-image: url(../../../images/trash.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border: none;
+  cursor: pointer;
+  z-index: 999;
 }
 
 .place__trash-btn:hover {
-    opacity: .6;
-    transition: .3s;
+  opacity: 0.6;
+  transition: 0.3s;
 }

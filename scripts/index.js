@@ -1,31 +1,3 @@
-// Массив начальных мест, взятый из тренажера:
-const initialCards = [
-  {
-    name: "Архыз",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
-  },
-  {
-    name: "Челябинская область",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
-  },
-  {
-    name: "Иваново",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
-  },
-  {
-    name: "Камчатка",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
-  },
-  {
-    name: "Холмогорский район",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
-  },
-  {
-    name: "Байкал",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
-  },
-];
-
 // Объявление переменных:
 
 // Редактирование профиля
@@ -77,10 +49,14 @@ const popupPlaceDescription = popupShowImg.querySelector(
 // Открытие и закрытие popup'ов
 const openPopup = (popup) => {
   popup.classList.add("popup_active");
+  document.addEventListener("mousedown", closePopupByOverlay);
+  document.addEventListener("keydown", closePopupByEsc);
 };
 
 const closePopup = (popup) => {
   popup.classList.remove("popup_active");
+  document.addEventListener("mousedown", closePopupByOverlay);
+  document.addEventListener("keydown", closePopupByEsc);
 };
 
 const clickEditBtn = () => {
@@ -117,14 +93,14 @@ const clickShowImgClose = () => {
 const closePopupByOverlay = (evt) => {
   const overlayPopup = evt.target;
   if (!overlayPopup.classList.contains("popup_active")) {
-    return evt.target;
+    closePopup(overlayPopup);
   }
   closePopup(overlayPopup);
 };
 
 const closePopupByEsc = (evt) => {
-  const escPopup = document.querySelector(".popup_active");
   if (evt.key == "Escape") {
+    const escPopup = document.querySelector(".popup_active");
     closePopup(escPopup);
   }
 };
@@ -171,6 +147,8 @@ const handleAddPlaceSumbmit = (evt) => {
   prependPlace(place);
   closePopup(popupAddPlace);
   evt.target.reset();
+  popupSubmitBtn.classList.add("popup__save-btn_disabled");
+  popupSubmitBtn.disabled = true;
 };
 
 // Поставить лайк
@@ -193,8 +171,3 @@ popupShowImgCloseBtn.addEventListener("click", clickShowImgClose);
 popupFormEdit.addEventListener("submit", editProfile);
 popupFormAddPlace.addEventListener("submit", handleAddPlaceSumbmit);
 renderCards(initialCards);
-
-// Закрытие попапа по клику на оверлей
-document.addEventListener("mousedown", closePopupByOverlay);
-// Закрытие попапа по Esc
-document.addEventListener("keydown", closePopupByEsc);
