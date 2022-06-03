@@ -92,10 +92,9 @@ const clickShowImgClose = () => {
 
 const closePopupByOverlay = (evt) => {
   const overlayPopup = evt.target;
-  if (!overlayPopup.classList.contains("popup_active")) {
+  if (overlayPopup.classList.contains("popup_active")) {
     closePopup(overlayPopup);
   }
-  closePopup(overlayPopup);
 };
 
 const closePopupByEsc = (evt) => {
