@@ -79,7 +79,7 @@ const closePopupByEsc = (evt) => {
   }
 };
 
-const UniClosePopup = (evt) => {
+const clickUniClosePopup = (evt) => {
   if (
     evt.target.classList.contains("popup__close-btn") ||
     evt.target.classList.contains("popup")
@@ -134,7 +134,7 @@ const enableFormValidation = () => {
 // Нажатие кнопок
 popupEditBtn.addEventListener("click", clickEditBtn);
 popupAddBtn.addEventListener("click", clickAddPlace);
-document.addEventListener("mousedown", UniClosePopup);
+document.addEventListener("mousedown", clickUniClosePopup);
 popupFormEdit.addEventListener("submit", editProfile);
 popupFormAddPlace.addEventListener("submit", handleAddPlaceSumbmit);
 
