@@ -120,7 +120,7 @@ const handleAddPlaceSumbmit = (evt) => {
     name: popupInputPlaceName.value,
     link: popupInputPlaceLinkImg.value,
   });
-  clickAddPlaceClose;
+  closePopup(popupAddPlace);
 };
 
 const enableFormValidation = () => {
