@@ -1,6 +1,6 @@
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
-
+import { openPopup } from "./utils.js";
 const selectors = {
   inputSelector: ".popup__input",
   submitButtonSelector: ".popup__save-btn_submit",
@@ -15,10 +15,12 @@ const profileName = document.querySelector(".profile__name");
 const profileAbout = document.querySelector(".profile__about");
 const popupEditBtn = document.querySelector(".profile__edit-btn");
 const popupEdit = document.querySelector(".popup_type_edit");
+const popupFormEdit = popupEdit.querySelector(".popup__form");
 const popupInputName = popupEdit.querySelector(".popup__input_type_user-name");
 const popupInputAbout = popupEdit.querySelector(
   ".popup__input_type_user-about"
 );
+const popupEditCloseBtn = popupEdit.querySelector(".popup__close-btn");
 
 const placesArea = document.querySelector(".places");
 const popupAddPlace = document.querySelector(".popup_type_add-place");
@@ -42,11 +44,6 @@ const popupInputPlaceErrorLinkImg = popupAddPlace.querySelector(
 // Функции:
 
 // Открытие и закрытие popup'ов
-const openPopup = (popup) => {
-  popup.classList.add("popup_active");
-  document.addEventListener("mousedown", closePopupByOverlay);
-  document.addEventListener("keydown", closePopupByEsc);
-};
 
 const closePopup = (popup) => {
   popup.classList.remove("popup_active");

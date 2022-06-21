@@ -1,4 +1,4 @@
-import { openPopup } from "./index.js";
+import { openPopup } from "./utils.js";
 
 export default class Card {
   constructor(data, placeSelector) {
@@ -33,8 +33,8 @@ export default class Card {
   };
 
   _deletePlace = (evt) => {
-    const place = evt.target.closest(".place");
-    place.remove();
+    this._placeElement.remove();
+    this._placeElement = null;
   };
 
   _setEventListeners() {
