@@ -1,6 +1,6 @@
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
-import { openPopup } from "./utils.js";
+import { openPopup, closePopup } from "./utils.js";
 
 const selectors = {
   inputSelector: ".popup__input",
@@ -44,12 +44,6 @@ const popupInputPlaceErrorLinkImg = popupAddPlace.querySelector(
 
 // Открытие и закрытие popup'ов
 
-const closePopup = (popup) => {
-  popup.classList.remove("popup_active");
-  document.addEventListener("mousedown", closePopupByOverlay);
-  document.addEventListener("keydown", closePopupByEsc);
-};
-
 const clickEditBtn = () => {
   popupInputName.value = profileName.textContent;
   popupInputAbout.value = profileAbout.textContent;
@@ -63,20 +57,6 @@ const editProfile = (evt) => {
   profileName.textContent = popupInputName.value;
   profileAbout.textContent = popupInputAbout.value;
   closePopup(popupEdit);
-};
-
-const closePopupByOverlay = (evt) => {
-  if (evt.target.classList.contains("popup_active")) {
-    const overlayPopup = evt.target;
-    closePopup(overlayPopup);
-  }
-};
-
-const closePopupByEsc = (evt) => {
-  if (evt.key == "Escape") {
-    const escPopup = document.querySelector(".popup_active");
-    closePopup(escPopup);
-  }
 };
 
 const clickUniClosePopup = (evt) => {
@@ -123,11 +103,11 @@ const handleAddPlaceSumbmit = (evt) => {
   closePopup(popupAddPlace);
 };
 
+const formValidator = {};
 const enableFormValidation = () => {
-  const forms = Array.from(document.forms);
-  forms.forEach((form) => {
-    const formValidator = new FormValidator(selectors, form);
-    formValidator.enableValidation();
+  Array.from(document.forms).forEach((form) => {
+    formValidator[form.name] = new FormValidator(selectors, form);
+    formValidator[form.name].enableValidation();
   });
 };
 

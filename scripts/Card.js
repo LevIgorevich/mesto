@@ -1,11 +1,13 @@
 import { openPopup } from "./utils.js";
 
+import { popupShowImg } from "./popupShowImg.js";
 export default class Card {
   constructor(data, placeSelector) {
     this._name = data.name;
     this._link = data.link;
     this._placeSelector = placeSelector;
-    this._popupShowImg = document.querySelector(".popup_type_show-img");
+    this._popupShowImg = popupShowImg;
+    // this._popupShowImg = document.querySelector(".popup_type_show-img");
   }
 
   _getTemplate() {
