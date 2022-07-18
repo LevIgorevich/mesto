@@ -17,4 +17,3 @@
   [Figma ПР6](https://www.figma.com/file/bjyvbKKJN2naO0ucURl2Z0/JavaScript.-Sprint-6?node-id=0%3A1)
 - [Картинки](https://unsplash.com/)
 - [Оптимизация картинок](https://tinypng.com/)
-- [Ссылка на проект GitHub](https://levigorevich.github.io/mesto/)
